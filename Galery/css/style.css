@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url(../../img/img9.jfif);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: "Patrick Hand", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  margin: 0;
+}
+
+body::-webkit-scrollbar{
+  width: 0px;
+  background: rgba(255,255,255,0.2);
+}
+
+.nav{
+  background: url(../../img/banner.jfif);
+  color: white;
+  padding: 20px;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+  z-index: 1;
+}
+
+.nav_loogo{
+  font-size: 1.5em;
+  font-weight: 900;
+}
+
+.nav_container{
+  display: flex;
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_menu{
+  display: flex;
+  grid-auto-flow: row;
+  gap: 1em;
+}
+
+.nav_item{
+  color: #fff;
+  text-decoration: none;
+  line-height: normal;
+
+  display: inline-block;
+    color: #f9f9f9;
+    text-decoration: none;
+    padding: 10px 20px;
+    line-height: normal;
+
+  font-weight: bold;
+  -webkit-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.nav_item:hover{
+  background: #691111;
+  border-radius: 50px;
+}
+
+.nav_label, .nav_input{
+  display: none;
+}
+
+@media (max-width: 1400px){
+  .nav_label{
+    display: block;
+    cursor: pointer;
+  }
+  .nav_menu{
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    background: #640404;
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    clip-path: circle(0.0% at 100% 0);
+    transition: clip-path 1s ease-in-out;
+    z-index: 1;
+  }
+
+  .nav_input:checked + .nav_menu{
+    clip-path: circle(141.2% at 100% 0);
+  }
+}
+
+p{
+  margin-bottom: 1.6rem;
+}
+
+.main {
+  padding-top: 7rem;
+}
+
+.container{
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: 25px;
+}
+
+a{
+  text-decoration: none;
+  color: #f9f9f9;
+}
+
+.footer {
+  font-size: 15px;
+  text-align: center;
+  margin-top: 3px;
+}
+
+.galeria{
+  font-size: 30px;
+  color: aliceblue;
+  z-index: -1;
+}
+
+/*----------------------------------------------galeria fotografica---------------------------------------------*/
+
+
+.galeria{
+  font-size: 30px;
+  color: aliceblue;
+  z-index: -1;
+}
+
+.galeria h1{
+  text-align: center;
+  margin: 20px 0 15px 0;
+  font-weight: 300;
+}
+
+.linea{
+  border-top: 5px solid #222327;
+  margin-bottom: 40px;
+}
+
+.contenedor-imagenes{
+  display: flex;
+  width: 85%;
+  margin: auto;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border-radius: 3px;
+
+  margin-bottom: 160px;
+}
+
+.contenedor-imagenes .imagen{
+  width: 32%;
+  position: relative;
+  height: 450px;
+  margin-bottom: 25px;
+  box-shadow: rgba(0, 0, 0, 0.75);
+}
+
+.imagen img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #7c767cbe;
+  width: 100%;
+  height: 0;
+  transition: all 500ms ease-out;
+  /*overflow: hidden;*/
+  opacity: 0;
+
+}
+
+.overlay h2{
+  color: antiquewhite;
+  font-size: 30px;
+  position: absolute;
+  top: 25%;
+  left: 0;
+  right: 0;
+  text-align: center;
+
+}
+
+.imagen:hover .overlay{
+  height: 100%;
+  cursor: pointer;
+
+  opacity: 1;
+  visibility: visible;
+} 
+
+/***************************************************************GALERIA DE FOTOS********************************************************/
+
+
+
+@media screen and (max-width:1000px){
+  .contenedor-imagenes{
+      width: 95%;
+  }
+}
+
+@media screen and (max-width:700px){
+  .contenedor-imagenes{
+      width: 90%;
+  }
+  .contenedor-imagenes .imagen{
+      width: 48%;
+  }
+}
+
+@media screen and (max-width:450px){
+  h1{
+      font-size: 22px;
+  }
+  .contenedor-imagenes{
+      width: 90%;
+  }
+  .contenedor-imagenes .imagen{
+      width: 80%;
+  }
+}
+
+/******************************************************************MINIREPRODUCTOR*******************************************************/
+
+html, body {
+  align-items: center;
+  justify-content: center;
+  font-family: "Patrick Hand", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.player {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+
+  flex-wrap: wrap;
+
+  bottom: -61px;
+  position: fixed;
+  left: -3px;
+  transition: 1s ease-out;
+}
+
+
+
+.player:hover{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+
+  flex-wrap: wrap;
+
+  bottom: -10px;
+  position: fixed;
+  left: -3px;
+}
+
+
+.player .control-panel {
+  position: relative;
+  background-color: #640404;
+  border-radius: 15px;
+  width: 170px;
+  height: 80px;
+
+}
+
+
+.player .control-panel .album-art::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80px;
+}
+
+.player .control-panel.active .album-art {
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0).2;
+  transform: scale(1.2);
+  transition: all o.5s ease;
+}
+
+.player .control-panel .controls {
+  display: flex;
+  justify-content: flex-end;
+  height: 80px;
+  padding: 0 15px
+}
+
+.player .control-panel .controls .prev,
+.player .control-panel .controls .play,
+.player .control-panel .controls .next {
+  width: 55px;
+  height: auto;
+  border-radius: 10px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  margin: 5px 0;
+  background-color: #640404;
+  cursor: pointer;
+  transition: background-color 0.3 ease;
+}
+
+.player .control-panel .controls .prev:hover,
+.player .control-panel .controls .play:hover,
+.player .control-panel .controls .next:hover {
+  background-color: #640404;
+  transition: background-color 0.3s ease;
+}
+
+.player .control-panel .controls .prev {
+  background-image: url(../img/back.svg);
+}
+
+.player .control-panel .controls .play {
+  background-image: url(../img/play.svg);
+}
+
+.player .control-panel .controls .next {
+  background-image: url(../img/next.svg);
+}
+
+.player .control-panel.active .controls .play {
+  background-image: url(../img/stop.svg);
+}
+
+/******************************************************************MINIREPRODUCTOR*******************************************************/
