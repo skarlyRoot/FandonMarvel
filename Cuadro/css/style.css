@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url(../img/shooky.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: "Patrick Hand", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  margin: 0;
+}
+body::-webkit-scrollbar{
+  width: 0px;
+  background: rgba(255,255,255,0.2);
+}
+
+a{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.nav{
+  background: url(../../img/banner.jfif);
+  color: white;
+  padding: 20px;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.nav_loogo{
+  font-size: 1.5em;
+  font-weight: 900;
+}
+
+.nav_container{
+  display: flex;
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_menu{
+  display: flex;
+  grid-auto-flow: row;
+  gap: 1em;
+}
+
+.nav_item{
+  color: #fff;
+  text-decoration: none;
+  line-height: normal;
+
+  display: inline-block;
+    color: #f9f9f9;
+    text-decoration: none;
+    padding: 10px 20px;
+    line-height: normal;
+
+  font-weight: bold;
+  -webkit-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.nav_item:hover{
+  background: #691111;
+  border-radius: 50px;
+}
+
+.nav_label, .nav_input{
+  display: none;
+}
+
+@media (max-width: 1400px){
+  .nav_label{
+    display: block;
+    cursor: pointer;
+  }
+  .nav_menu{
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    background: #640404;;
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    clip-path: circle(0.0% at 100% 0);
+    transition: clip-path 1s ease-in-out;
+    z-index: 1;
+  }
+
+  .nav_input:checked + .nav_menu{
+    clip-path: circle(141.2% at 100% 0);
+  }
+  #video{
+    margin: -500px;
+    width: 30%;
+    height: 80%;
+    z-index: 1;
+  }
+}
+
+#menu{
+  z-index: 1;
+}
+
+
+
+#video{
+  position: relative;
+  width: 80%;
+  height: 336px;
+  z-index: -1;
+}
+
+#video{
+  width: 70%;
+  height: 70%;
+  z-index: -1;
+}
+
+video{
+  object-fit: cover;
+  z-index: -1;
+}
+
+@media (max-width: 700px){
+  body {
+    background: url(../img/700.jpg);
+    max-width: 100%;
+    height: auto;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: "Patrick Hand", sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    margin: 0;
+  }
+
+
+
+  #video{
+    position: relative;
+    width: 383px;
+    height: 629px;
+    top: 230px;
+    z-index: -1;
+  }
+
+}
+
+@media (max-width: 375px){
+  #video{
+    margin: -374px;
+    width: 30%;
+    height: 80%;
+    z-index: 1;
+  }
+  #video{
+    position: relative;
+    width: 80%;
+    height: 300px;
+    z-index: -1;
+  }
+}

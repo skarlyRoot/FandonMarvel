@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Fandon Marvel</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="shortcut icon" type="image/x-icon" href="../img/icono.jpg"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    </head>
+    <body>
+
+        <header class="header">
+
+            <nav class="nav">
+                <div class="nav_container">
+                    <h1 class="nav_logo"><a href="../index.html">Fandon Marvel</a></h1>
+
+                    <label for="menu" class="nav_label">
+                        <img src="../img/spider.svg" width="65px" height="50px" class="nav_img">
+                    </label>
+
+                    <input type="checkbox" id="menu" class="nav_input">
+
+                    <div class="nav_menu">
+                        <a href="../Novedades/index.html" class="nav_item">Novedades</a>
+                        <a href="../Setlist/index.html" class="nav_item">Setlist</a>
+                        <a href="../Cuadro/index.html" class="nav_item">Cuadro</a>
+                        <a href="../Galery/index.html" class="nav_item">Galery</a>
+                        <a href="../Eventos/" class="nav_item">Eventos</a>
+                    </div>
+
+                </div>
+            </nav>
+
+        </header>
+        <section class="contenido wrapper">
+            <!--Contenido-->
+            <center>
+            <div class="div_centrado fondo_deg">
+                <div id="cont_webcam" class="div_centrado">
+                    <div class="borde">
+                        <video id="video" playsinline autoplay></video>
+                    </div>
+                    <canvas id="canvas" width="500px" height="500px"></canvas>
+                </div>
+                <div id="mensaje" class="">
+            
+                </div>
+            </div>
+            </center>
+            
+        </section>
+
+
+    <script>
+        
+        'use strict'
+        document.getElementById('canvas').style.display = 'none';
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+
+        const constraints = {
+            Audio :false,
+            video :{
+                with : 1280,
+                height: 720,
+            }
+        };
+
+        async function init(){
+            try{
+                const stream = await
+                navigator.mediaDevices.getUserMedia(constraints);
+                handleSuccess(stream);
+            } catch (e){
+                $("#mensaje").html("Debes de seleccionar un dispositivo y permitir el acceso al navegador.Presiona F5 o Crtl + R en el navegador.<br clear='all'><br clear='all'>");
+            }
+        }
+
+        function handleSuccess(stream){
+            window.stream = stream;
+            video.srcObject = stream; 
+        }
+
+        init()
+        var context = canvas.getContext('2d');
+
+    </script>
+    <div class="disclaimer">
+        <style>
+            .disclaimer{
+                left: -100%;
+                bottom: -100%;
+            }
+        </style>
+
+    </body>
+
+</html>
